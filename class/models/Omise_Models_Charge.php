@@ -272,7 +272,7 @@ class Omise_Models_Charge
         }
 
         $objPurchase = new SC_Helper_Purchase_Ex();
-        $updateData  = array(OMISE_MDL_CHARGE_DATA_COL => $this->lfConvertToDbChargeData($objCharge));
+        $updateData  = array(OMISE_MDL_CHARGE_DATA_COL => serialize($this->lfConvertToDbChargeData($objCharge)));
         $objQuery    = SC_Query_Ex::getSingletonInstance();
         $objQuery->begin();
         $objPurchase->sfUpdateOrderStatus(
